@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const ThemeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -32,8 +32,9 @@ export const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className={cn(
-        "fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300",
-        "focus:outlin-hidden"
+        "fixed bottom-5 right-5 z-50 p-3 rounded-full shadow-lg",
+        "bg-background/90 backdrop-blur-md hover:bg-primary hover:text-white",
+        "transition-colors duration-300", isDarkMode ? 'bg-blue-900':'bg-yellow-300'
       )}
     >
       {isDarkMode ? (
